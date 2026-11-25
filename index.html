@@ -105,25 +105,77 @@ input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid #1f52
 .mo-on [data-mo=hair]::before{transform:none !important}
 .b-cta,.b-cta .b-disc,.b-cta .b-disc svg,.v6-cta,.v6-disc,.v6-disc svg,.bh-nl::after{transition:none !important}
 }
-/* mobile */
-@media (max-width:960px){
-.b-hide-m{display:none !important}
+/* ===== responsive ===== */
+.b-cta,.bh-cta{white-space:nowrap;flex:none}
+.bh-ghost,.bh-round{flex:none}
+.b-hform input{font-size:16px}
+/* laptop / tablet landscape: hero stacks (copy, then the form), nav tightens */
+@media (max-width:1279px){
+.bh-nl{padding:0 10px !important;font-size:13px !important}
+.b-herox{height:auto !important;padding:150px 30px 48px !important;display:flex;flex-direction:column;gap:40px}
+.b-hero-copy{position:relative !important;left:auto !important;bottom:auto !important;width:auto !important;max-width:760px;z-index:1}
+.b-hero-copy h1{width:auto !important;font-size:52px !important}
+.b-hero-copy p{width:auto !important}
+.b-hero-copy > div:first-child > span[aria-hidden]{left:-30px !important}
+.b-hform{position:relative !important;right:auto !important;bottom:auto !important;width:100% !important;max-width:560px}
+.v7-split{grid-template-columns:minmax(0,1fr) 340px minmax(0,1fr) !important}
+}
+@media (max-width:1100px){
+.bh nav{display:none !important}
 .bh{grid-template-columns:1fr auto !important}
-.b-herox{height:auto !important;padding:110px 20px 20px !important}
-.b-hero-copy{position:relative !important;left:auto !important;bottom:auto !important;width:auto !important}
-.b-hero-copy h1,.b-hero-copy p{width:auto !important}
-.b-hform{position:relative !important;right:auto !important;bottom:auto !important;width:auto !important;margin-top:30px}
-.b-h1{font-size:44px !important;line-height:1.02 !important}
-.b-h2{font-size:32px !important}
+}
+/* tablet portrait */
+@media (max-width:960px){
+.bh{padding:0 20px !important}
+.b-herox{padding:130px 20px 40px !important}
+.b-hero-copy > div:first-child > span[aria-hidden]{left:-20px !important}
+.b-hero-copy h1{font-size:44px !important;line-height:1.04 !important}
+.b-h2{font-size:34px !important}
 .b-g4,.b-g4d{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
-.b-g4 > *{border-left:0 !important;padding-left:0 !important;padding-right:0 !important}
 .b-stg{margin-top:0 !important}
 .b-pad{padding-left:20px !important;padding-right:20px !important}
-.b-tilepad{padding:30px 20px !important}
-.v7-split{grid-template-columns:1fr !important}
-.v7-split > .v6-photo{order:-1}
+.b-tilepad{padding:40px 0 30px !important;gap:36px !important}
+#mortgages{padding:72px 20px !important}
+.v7-split{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+.v7-split > .v6-photo{order:-1;grid-column:1 / -1;min-height:0 !important;flex-direction:row !important}
+.v7-split > .v6-photo .v6-ph{flex:0 0 42% !important;min-height:360px !important}
+.v7-split > .v6-photo > span:last-child{flex:1;justify-content:center}
 }
-@media (max-width:560px){.b-fields4{grid-template-columns:1fr !important}.b-g4,.b-g4d{grid-template-columns:1fr !important}}
+/* phone */
+@media (max-width:600px){
+.bh{height:64px !important;margin-bottom:-64px !important;padding:0 16px !important;gap:10px !important}
+.bh a[aria-label="Lenty home"]{font-size:26px !important}
+.bh .b-globe{width:40px !important;height:40px !important}
+.bh-wa{display:none !important}
+.bh-cta{height:42px !important;font-size:12px !important;padding-left:58px !important;padding-right:16px !important}
+.bh-cta .b-disc{width:48px !important}
+.b-herox{padding:104px 16px 28px !important;gap:28px}
+.b-hero-copy{gap:18px !important}
+.b-hero-copy > div:first-child > span[aria-hidden]{left:-16px !important}
+.b-hero-copy h1{font-size:34px !important;letter-spacing:-0.02em !important}
+.b-hero-copy p{font-size:16px !important}
+.b-hform{padding:22px !important;gap:20px !important;border-radius:18px !important}
+.b-hform h2{font-size:21px !important}
+.b-fields4{grid-template-columns:1fr !important;gap:10px !important}
+.b-hres > span:first-child{padding:20px !important}
+.b-h2{font-size:30px !important}
+#about p{font-size:16px !important}
+.b-g4,.b-g4d{grid-template-columns:1fr 1fr !important;gap:12px !important}
+.b-stat{min-height:0 !important;padding:28px 14px 22px !important;gap:14px !important}
+.b-stat > span:first-child{font-size:40px !important}
+.b-stat > span:last-child > span:last-child{font-size:12px !important}
+#mortgages{padding:60px 16px !important}
+#mortgages p{font-size:16px !important}
+.v7-split{grid-template-columns:1fr !important}
+.v7-split > .v6-photo{flex-direction:column !important}
+.v7-split > .v6-photo .v6-ph{flex:none !important;min-height:340px !important}
+.v6-cta{padding:0 60px !important}
+}
+@media (max-width:380px){
+.bh-cta span:first-child{font-size:11px}
+.b-hero-copy h1{font-size:30px !important}
+.b-g4,.b-g4d{grid-template-columns:1fr !important}
+}
 </style>
 </head>
 <body>
