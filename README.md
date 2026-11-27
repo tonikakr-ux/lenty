@@ -1,7 +1,7 @@
-# Lenty — concept B (preview)
+# Lenty — first three sections
 
-Static preview of the Lenty landing page, concept B. Open `index.html` or publish with GitHub Pages
-(Settings → Pages → Deploy from a branch → `main` / root).
+Static page of the Lenty landing: header, hero with repayment calculator, About (animated stats) and Mortgages.
+Published with GitHub Pages (Settings → Pages → Deploy from a branch → `main` / root).
 
-Put two photos in `images/`: `hero.jpg` (Dubai skyline) and `broker.jpg` (advisor portrait).
-Press **R** on the page to replay the animation.
+- `images/hero.jpg` — Dubai skyline, `images/broker.jpg` — advisor portrait
+- `fonts/` — Fixel (MacPaw, SIL Open Font License); Prata loads from Google Fonts
