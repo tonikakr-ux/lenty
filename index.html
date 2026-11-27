@@ -125,6 +125,45 @@ input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid #1f52
 .round:hover,.wa:hover,.soc:hover{background:#ffffff !important;border-color:#ffffff !important;color:#002c1f !important;box-shadow:0 8px 20px -8px rgba(0,0,0,.35)}
 .round svg,.soc svg,.wa .wa-line{transition:transform .3s cubic-bezier(.22,1,.36,1),opacity .2s ease}.round:hover svg,.soc:hover svg{transform:scale(1.08)}
 .wa .wa-color{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.6);opacity:0;transition:opacity .2s ease,transform .25s cubic-bezier(.22,1,.36,1)}.wa:hover .wa-line{opacity:0}.wa:hover .wa-color{opacity:1;transform:translate(-50%,-50%) scale(1)}
+/* ===== how it works: ring with stations, steps switch on scroll ===== */
+.how{position:relative;z-index:4;background:#e3ece6}
+.how--js{height:400svh}
+.how__pin{position:relative;min-height:100svh;display:grid;align-items:center;padding:112px 30px 56px}
+.how--js .how__pin{position:sticky;top:0;height:100svh;min-height:640px;overflow:hidden}
+.how__in{width:100%;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(0,520px) auto;justify-content:space-between;align-items:center;gap:64px}
+.how__copy{display:grid;gap:40px}
+.how__head{display:grid;gap:16px;justify-items:start}
+.how__tag{padding:8px 20px;border-radius:100px;background:#c2a15b;color:#002c1f;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.how__title{margin:0;font-family:Prata,serif;font-weight:400;font-size:46px;line-height:104%;letter-spacing:-.02em;color:#002c1f}
+.how__stack{position:relative;display:grid}
+.how__stack > *{grid-area:1 / 1}
+.how__st{opacity:0;visibility:hidden;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1),visibility 0s linear .6s}
+.how__st.is-past{transform:translateY(-24px)}
+.how__st.is-on{opacity:1;visibility:visible;transform:none;transition-delay:.12s,.12s,0s}
+.how__text{margin:0;font-size:20px;line-height:140%;color:#46564c}
+.how__act{display:grid;gap:16px;justify-items:start}
+.how__note{font-size:13px;line-height:120%;color:#46564c}
+.how__ring{position:relative;width:min(480px,calc(100svh - 240px));aspect-ratio:1 / 1;display:grid;place-items:center}
+.how__svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+.how__center{width:64%;text-align:center}
+.how__center .how__st{display:grid;justify-items:center;gap:12px}
+.how__when{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#8a6c2c}
+.how__name{margin:0;font-family:Prata,serif;font-weight:400;font-size:44px;line-height:104%;letter-spacing:-.02em;color:#002c1f}
+.how__stn{position:absolute;width:48px;aspect-ratio:1 / 1;padding:0;border-radius:100px;border:1px solid #b9cdc1;background:#e3ece6;color:#002c1f;font-family:Prata,serif;font-size:14px;cursor:pointer;transition:background .4s ease,color .4s ease,border-color .4s ease,transform .4s cubic-bezier(.22,1,.36,1)}
+.how__stn:hover{transform:scale(1.1)}
+.how__stn.is-done{background:#c2a15b;border-color:#c2a15b}
+.how__stn.is-on{background:#002c1f;border-color:#002c1f;color:#efe3c7;transform:scale(1.2)}
+.how__stn--1{left:calc(50% - 24px);top:-24px}.how__stn--2{right:-24px;top:calc(50% - 24px)}.how__stn--3{left:calc(50% - 24px);bottom:-24px}.how__stn--4{left:-24px;top:calc(50% - 24px)}
+@media (max-width:960px){
+.how__pin{padding:96px 20px 32px}
+.how__in{grid-template-columns:minmax(0,1fr);justify-items:center;gap:40px 24px}
+.how__copy{display:contents}
+.how__head,.how__copy .how__stack,.how__act{width:100%;max-width:560px}
+.how__head{order:-2}.how__ring{order:-1;width:min(320px,calc(100vw - 88px),calc(100svh - 500px))}
+.how__title{font-size:34px}.how__text{font-size:18px}.how__name{font-size:28px}.how__note{display:none}
+}
+@media (max-width:600px){.how__title{font-size:30px}.how__stn{width:44px}.how__stn--1,.how__stn--3{left:calc(50% - 22px)}.how__stn--1{top:-22px}.how__stn--3{bottom:-22px}.how__stn--2{right:-22px;top:calc(50% - 22px)}.how__stn--4{left:-22px;top:calc(50% - 22px)}}
+@media (prefers-reduced-motion:reduce){.how__st,.how__stn{transition:none}}
 </style>
 </head>
 <body>
@@ -277,6 +316,43 @@ input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid #1f52
   </div>
 </section>
 
+<!-- ===== HOW IT WORKS ===== -->
+<section id="how" class="how" aria-labelledby="h-how">
+  <div class="how__pin">
+    <div class="how__in">
+      <div class="how__copy">
+        <div class="how__head">
+          <span class="how__tag">How it works</span>
+          <h2 id="h-how" class="how__title">How to get a mortgage in Dubai in 4 steps</h2>
+        </div>
+        <ol class="how__stack" style="margin:0;padding:0;list-style:none">
+          <li class="how__st is-on" data-how-step="0"><h3 class="how__name" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Step 1: Discovery call</h3><p class="how__text">A free call about your goals, residency and income. You learn how much you can borrow, with no documents needed.</p></li>
+          <li class="how__st" data-how-step="1"><h3 class="how__name" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Step 2: Bank matching</h3><p class="how__text">We compare 18 UAE banks on full cost and shortlist the three that fit you best.</p></li>
+          <li class="how__st" data-how-step="2"><h3 class="how__name" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Step 3: Pre-approval</h3><p class="how__text">We prepare your file to the bank’s rules and apply where approval is most likely.</p></li>
+          <li class="how__st" data-how-step="3"><h3 class="how__name" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Step 4: Keys</h3><p class="how__text">Valuation, final offer and transfer at the trustee office. We stay with you until the keys are yours.</p></li>
+        </ol>
+        <div class="how__act">
+          <a href="#" class="cta" style="background: #002c1f; color: #efe3c7">Check my chances <span class="disc"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"></path></svg></span></a>
+          <span class="how__note">Usually 3–6 weeks · Free for UAE residents</span>
+        </div>
+      </div>
+      <div class="how__ring">
+        <svg class="how__svg" viewBox="0 0 480 480" aria-hidden="true"><circle cx="240" cy="240" r="239" fill="none" stroke="#b9cdc1" stroke-width="1"></circle><circle id="howArc" cx="240" cy="240" r="239" fill="none" stroke="#c2a15b" stroke-width="2" stroke-linecap="round" stroke-dasharray="1502" stroke-dashoffset="1502"></circle></svg>
+        <div class="how__center how__stack" aria-hidden="true">
+          <span class="how__st is-on" data-how-step="0"><span class="how__when">Step 01 · Day 1 · 15 min</span><span class="how__name">Discovery call</span></span>
+          <span class="how__st" data-how-step="1"><span class="how__when">Step 02 · Days 1–2</span><span class="how__name">Bank matching</span></span>
+          <span class="how__st" data-how-step="2"><span class="how__when">Step 03 · About 7 days</span><span class="how__name">Pre-approval</span></span>
+          <span class="how__st" data-how-step="3"><span class="how__when">Step 04 · Weeks 3–6</span><span class="how__name">Keys</span></span>
+        </div>
+        <button type="button" class="how__stn how__stn--1 is-on" data-how-go="0" aria-label="Step 1: Discovery call" aria-current="step">01</button>
+        <button type="button" class="how__stn how__stn--2" data-how-go="1" aria-label="Step 2: Bank matching">02</button>
+        <button type="button" class="how__stn how__stn--3" data-how-go="2" aria-label="Step 3: Pre-approval">03</button>
+        <button type="button" class="how__stn how__stn--4" data-how-go="3" aria-label="Step 4: Keys">04</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 </div>
 <script>
 (function () {
@@ -325,6 +401,37 @@ input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid #1f52
     if (e.isIntersecting && e.intersectionRatio >= 0.3) st.className = 'g4 st-on';
     else if (!e.isIntersecting) st.className = 'g4 st-pre';
   }, { threshold: [0, 0.3] }).observe(st);
+})();
+</script>
+<script>
+// how it works: the arc follows the scroll around the ring, steps switch at each station
+(function () {
+  var sec = document.getElementById('how'); if (!sec) return;
+  var arc = document.getElementById('howArc'), C = 1502, cur = -1;
+  var parts = sec.querySelectorAll('[data-how-step]'), stns = sec.querySelectorAll('[data-how-go]');
+  sec.classList.add('how--js');
+  function setStep(n) {
+    if (n === cur) return; cur = n;
+    parts.forEach(function (el) { var i = +el.getAttribute('data-how-step'); el.classList.toggle('is-on', i === n); el.classList.toggle('is-past', i < n); });
+    stns.forEach(function (b) { var i = +b.getAttribute('data-how-go'); b.classList.toggle('is-on', i === n); b.classList.toggle('is-done', i < n); if (i === n) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current'); });
+  }
+  function range() { return Math.max(1, sec.offsetHeight - window.innerHeight); }
+  function update() {
+    var p = Math.min(1, Math.max(0, -sec.getBoundingClientRect().top / range()));
+    arc.style.strokeDashoffset = (C * (1 - p)).toFixed(1);
+    setStep(Math.min(3, Math.floor(p * 4)));
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; update(); }); } }, { passive: true });
+  window.addEventListener('resize', update);
+  stns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var i = +b.getAttribute('data-how-go');
+      var top = sec.getBoundingClientRect().top + window.pageYOffset + range() * (i + 0.5) / 4;
+      window.scrollTo({ top: top, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    });
+  });
+  update();
 })();
 </script>
 </body>
